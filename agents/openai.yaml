@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Introduction Writing"
+  short_description: "Build introductions from mechanisms and evidence"
+  default_prompt: "Use $research-introduction-writing to analyze or revise this introduction using evidence-grounded argument patterns."
