@@ -1,23 +1,26 @@
-# Research Introduction Writing
+# Computer Science Introduction Writing
 
-A skill for building clear, persuasive research Introductions: explain how existing approaches work, identify a specific limitation, and connect that limitation to the proposed method.
+A skill for analyzing, drafting, and revising research Introductions in computer science, with a focus on machine learning, computer vision, natural language processing, multimodal learning, information retrieval, and data mining.
 
-Designed for research Introductions targeting CCF A conferences and SCI Q1 journals, with a focus on problem formulation, research motivation, and evidence-grounded argumentation.
+Designed for research Introductions targeting CCF A conferences and SCI Q1 journals. It helps establish a meaningful research question, explain the closest prior approaches, and connect computational mechanisms to design choices and evidence.
 
 ## What it does
 
-- **Study an Introduction.** Explain the role of each paragraph and how it leads to the research problem and method.
-- **Strengthen the motivation.** Replace broad claims such as "insufficient interaction" with a concrete limitation and the conditions under which it matters.
+- **Study an Introduction.** Explain how the background narrows to a research object and how each paragraph motivates the next question or design.
+- **Frame the contribution.** Distinguish a new task or setting, a newly characterized challenge, a method improvement, and an efficiency or process improvement.
+- **Strengthen the motivation.** Locate the issue in representations, interaction granularity, training objectives, generalization conditions, inference dependencies, or computational cost.
 - **Position the contribution.** Acknowledge what the closest prior work already achieves, then explain what remains unresolved.
 - **Revise a draft.** Improve paragraph flow and connect design choices to the stated problem while preserving technical content, citations, and LaTeX.
 
 ## How it works
 
-The skill helps build the connections between:
+The skill supports both task-first and mechanism-first arguments. A task-first Introduction establishes an unmet requirement or meaningful condition before examining existing solutions. A mechanism-first Introduction inspects an established operation to derive a precise research question.
 
-> Existing approach -> specific limitation -> supported explanation -> design principle -> method -> evidence
+Both routes connect:
 
-This is a reasoning guide, not a fixed paragraph template. The structure follows the research question, the actual method, and the available evidence.
+> Task requirement -> existing capability -> concrete difficulty -> supported explanation or hypothesis -> design principle -> method -> evidence
+
+The structure follows the research question, actual implementation, and available evidence. For systems, security, software engineering, or theory papers, the guidance adapts to their research objects and assumptions.
 
 ## Installation
 
@@ -62,16 +65,16 @@ Preserve the LaTeX structure and citation keys, and use only the evidence I prov
 
 ```text
 Use $research-introduction-writing to help organize an Introduction from these notes.
-I have included the task, closest prior approaches, method, and results.
-Suggest an argument outline and draft the motivation paragraphs.
+I have included the task setting, closest prior approaches, method, and results.
+Help me choose a problem framing, suggest an argument outline, and draft the motivation paragraphs.
 ```
 
-For drafting and revision, include the research task, closest prior approaches, actual method, and available observations or results. Missing evidence remains an open question rather than becoming an invented claim.
+For drafting and revision, include the inputs and outputs, available information and constraints, closest prior approaches, actual method, and available observations or results. Missing evidence remains an open question rather than becoming an invented claim.
 
 ## Inside the skill
 
 - [SKILL.md](SKILL.md): task selection, workflow, and writing constraints.
-- [Pattern library](references/pattern-library.md): ways to connect limitations, explanations, and design choices.
-- [Writing playbook](references/writing-playbook.md): practical revision moves and argument checks.
+- [Pattern library](references/pattern-library.md): computer science examples for problem framing and method motivation.
+- [Writing playbook](references/writing-playbook.md): contribution framing, computational anchors, paragraph development, and evidence checks.
 
 The skill loads supporting guidance as needed and adapts it to the requested task.

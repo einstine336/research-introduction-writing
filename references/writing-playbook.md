@@ -1,94 +1,138 @@
-# Writing Playbook
+# Computer Science Introduction Writing Playbook
 
-## Identify argument functions
+## Choose the contribution framing
+
+Use the user's facts to identify the main contribution. Multiple framings may coexist, but the Introduction should make their relationship clear.
+
+| Framing | Establish before introducing the method | Common overstatement |
+| --- | --- | --- |
+| New task or problem setting | Inputs, outputs, available information, constraints, practical need, and a substantive difference from the closest formulations | A new architecture is treated as a new task |
+| Newly characterized challenge or explanation | A meaningful condition or observation, what existing accounts miss, and the evidence supporting the new question or explanation | A known performance issue is renamed and claimed as unprecedented |
+| Method or mechanism improvement | How the closest method operates, where it becomes limited, and the design requirement that follows | Generic claims of insufficient modeling justify arbitrary modules |
+| Efficiency or process improvement | The required quality, operating conditions, and resource or dependency being changed | Fewer parameters or FLOPs are presented as proof of faster deployment |
+
+For a new setting, establish why the problem definition matters before discussing a solution. For an existing task, a precise condition or mechanism can provide a strong contribution without claiming a new task. Reserve priority claims for verified comparisons with relevant literature.
+
+## Locate the computer science problem
+
+Select the anchors relevant to the paper; do not turn this table into a mandatory checklist.
+
+| Anchor | Questions to resolve from the material |
+| --- | --- |
+| Task formulation | What are the inputs and required outputs? What supervision, side information, or constraints differ from existing settings? |
+| Representation | What information must be encoded? Which invariance or distinction does the target decision require? |
+| Interaction and granularity | What units interact? Do their scale, comparability, or information paths match the prediction target? |
+| Objective and optimization | What does the training objective encourage? How does that relate to intended component roles and test-time needs? |
+| Generalization and adaptation | Which input conditions, categories, domains, or available signals change between training and evaluation? |
+| Inference and preprocessing | Which intermediate predictions, candidate sets, or external tools does the method depend on? |
+| Resources | Where do computation, memory, latency, data, or annotation costs arise, and under which conditions? |
+
+For other computer science areas, use the actual research objects: workloads and consistency requirements in systems, adversary capabilities in security, program behaviors in software engineering, or assumptions and guarantees in theory. Do not force these studies into representation-learning language.
+
+## Study paragraph functions
 
 For a supplied Introduction, record what each relevant passage contributes:
 
 | Location | New understanding | What it builds on | Why the next step follows | Evidence type |
 | --- | --- | --- | --- | --- |
-| Actual section, page, or paragraph | A concise statement | Prior facts, citations, or observations | The next question or design requirement | Definition, illustration, result, hypothesis, or method description |
+| Actual section, page, or paragraph | A concise statement | Prior facts, citations, or observations | The next question or design requirement | Definition, illustration, measurement, hypothesis, or method description |
 
-Use this table for passage-level learning requests. During direct revision, the analysis can remain internal while the deliverable is coherent prose.
+Inspect how the opening narrows to the research object. Identify the point where the writing shifts from task need to existing mechanisms, from an observed difficulty to an explanation, and from that explanation to a design principle.
 
-## Develop a concrete limitation
+Show the table when the user asks to learn paragraph by paragraph. For direct revision, perform the analysis internally and deliver connected prose.
 
-The examples below are hypothetical revision exercises. Adapt the reasoning to the actual task and do not treat the examples as established results.
+## Develop the argument
 
-### Locate the operation
+### Establish a focused task need
 
-Broad claim: existing methods cannot model the relationships sufficiently.
+Define the task and the capability needed to perform it. Use an application example only when it clarifies the later question. Narrow the background to the relevant input, prediction target, or operating condition.
 
-Ask which objects are compared, what makes the comparison meaningful, and which condition changes. Explain how that change could affect the operation. For example, comparisons between measurements may depend on consistent calibration. Use the changed-assumption pattern when that dependency is supported.
+For a proposed new setting, state what changes in the formulation and why existing objectives or assumptions do not already express the need. For a difficult condition within an existing task, explain why the task should handle that condition.
 
-### Define the relevant granularity
+### Explain prior capability before its limit
 
-Broad claim: existing methods lack fine-grained modeling.
+Group relevant work by the operation or assumption needed for the argument. Describe what it does well. Introduce the strongest relevant counterexample before asserting what remains unresolved.
 
-Identify the unit of prediction, the unit of interaction, and why any difference matters. Check whether the closest work already addresses the issue. If it does, examine its remaining task-specific assumptions rather than repeating the broad gap.
+A citation list is not an explanation of how prior methods work. Broad claims such as all existing methods overlook this require support that a small set of examples cannot provide.
 
-### Explain auxiliary relevance
+### Make the difficulty inspectable
 
-Broad claim: related information needs more complete integration.
+Replace vague limitations with concrete relationships when the material supports them:
 
-Specify what the additional information contributes to the target decision, when it is relevant, and what observations support a concern about its use. Then explain the actual selection or integration operation. More information alone does not establish a need for more interaction.
+- **Insufficient fusion:** Identify the interacting representations, what information should pass between them, and the condition under which the operation is inadequate.
+- **Weak generalization:** State what changes between training and evaluation, which behavior is observed, and what explanation remains hypothetical.
+- **Missing fine-grained modeling:** Name the prediction and interaction units. Check whether the closest work already models the required unit and what assumption remains.
+- **High computational cost:** Locate the cost in training, inference, data processing, or annotation. Use the relevant measurements rather than an unrelated proxy.
+- **Limited prior attention:** Explain the unmet task requirement and its significance; lack of attention alone does not establish the problem.
 
-### Explain component roles
+### Examine the natural alternative
 
-Broad claim: the method adds components to address overfitting.
+When a direct solution bears on the question, explain what it achieves and which actual cost, assumption, or remaining difficulty matters. Use existing comparisons if available. Without them, discuss the limitation as an assumption or open question rather than inventing a failed baseline.
 
-State the intended responsibilities, the observations suggesting a mismatch, and how each change addresses it. Describe a sequential relationship only if the later operation depends on the earlier one.
+### Separate observation, explanation, and design
 
-## Examine a natural alternative
+Name the observed condition first, then explain the proposed dependency at the appropriate confidence level. State a design requirement before method names and implementation details.
 
-When an obvious alternative directly addresses the research question, use concrete facts to explain:
+A useful progression is:
 
-- What it already achieves.
-- Its additional assumptions, resources, or preprocessing.
-- Which observed cost or remaining difficulty matters for the current goal.
-- How the actual design addresses that difficulty.
+> Task requirement -> existing capability -> concrete difficulty -> supported explanation or hypothesis -> design requirement -> actual operation -> evidence.
 
-Without relevant experiments or verified literature, discuss conditions and research questions rather than inventing a failed baseline. A writing request does not automatically require new experiments.
+A task-first narrative can establish a new question before analyzing methods. A mechanism-first narrative can derive the question by inspecting an established operation. Use the route that matches the study.
 
-## Match explanations to evidence
+### Connect components and close the argument
 
-| Available material | Supported writing move | Unwarranted upgrade |
+- **Parallel complementarity:** Explain the different difficulties and where the operations meet.
+- **Sequential processing:** Explain the residual problem and actual dependency between steps.
+- **Collaborative preservation:** Explain the capability being added and the information or structure being retained.
+
+Each contribution should correspond to a question, design property, or finding already established. Contribution bullets are optional; their number follows the work. A module list alone does not explain the contribution.
+
+## Match evidence to its role
+
+| Available material | Supported role in the Introduction | Unsupported upgrade |
 | --- | --- | --- |
-| An illustrative example | Explain a phenomenon and its implications | Claim it is universal across the data |
-| A subgroup performance gap | Report a difference under the stated conditions | Declare a mechanism the sole proven cause |
-| An association between a factor and a benefit | Propose or support a related explanation | State a general causal law |
-| A component ablation | Describe its task contribution in the tested configuration | Claim every implied mechanism has been validated |
-| A method's architecture | Explain operations and design purposes | Guarantee performance, robustness, or optimality |
+| A task example or schematic | Make a condition, unit, or information path understandable | Prove prevalence, failure, or a causal mechanism |
+| Subgroup evaluation | Establish behavior under the defined condition | Prove a unique explanation for the gap |
+| A controlled change to a suspected factor | Support an explanation under the tested controls | Establish causality across every setting |
+| Correlation analysis | Motivate or support an association | Demonstrate a general causal law |
+| A component ablation | Show its task contribution in the tested configuration | Verify every mechanism implied by its name |
+| Aggregate benchmark results | Support task-level performance claims under that protocol | Establish behavior on an unmeasured subgroup |
+| Resource measurements | Support the measured cost-quality tradeoff under stated conditions | Equate parameter count, FLOPs, memory, and latency |
+| An architectural constraint | Explain the intended information flow | Guarantee the intended learned behavior |
 
-## Connect the limitation to the design
+Use available figures and preliminary results where they advance the argument. An analogy can motivate an intuition but does not provide experimental validation. Writing support does not automatically require new experiments.
 
-Work through the connections that the current material supports:
+## Hypothetical revision example
 
-1. Describe how the closest relevant approach operates.
-2. State the condition under which its behavior becomes a concern.
-3. Locate the operation or dependency involved.
-4. Distinguish the observation from the proposed explanation.
-5. State the design requirement in plain language.
-6. Explain how the actual method implements it.
-7. Limit the outcome claim to the available evidence.
+A draft might say:
 
-This is a diagnostic sequence, not a mandatory paragraph order. A missing link may require clarification or a narrower claim rather than another module or experiment.
+> Existing retrieval methods have insufficient interaction. We therefore introduce an adaptive module to improve performance.
 
-## Describe relationships between designs
+Develop the argument using the actual study's facts:
 
-- **Parallel complementarity:** Operations address related but distinct difficulties. Explain their roles and where their outputs meet.
-- **Sequential processing:** A later operation addresses a difficulty that remains after an earlier one. Describe the actual dependency.
-- **Collaborative preservation:** A primary operation enables change while another mechanism preserves a required capability. Explain both requirements and the evidence for their interaction.
+- Identify what is compared or combined: for example, query features and candidate representations.
+- Describe the relevant condition: for example, a change in the query's available information.
+- State what the supplied evaluation observes, if anything.
+- Separate the possible explanation from the result: for example, a fixed weighting rule may treat features as equally informative under both complete and incomplete inputs.
+- State the requirement: adapt the combination to available evidence.
+- Explain how the real implementation meets it and what completed evaluation supports.
 
-Choose the relationship that matches the implementation. Do not change component identities, ordering, or responsibilities to imitate a narrative.
+When the explanation is a hypothesis, a motivation passage could read:
 
-## Check the revised argument
+> Queries may provide different amounts of usable information. A fixed combination rule assigns the same feature weights across these conditions, raising the question of whether the weighting should depend on the information available in each query. We investigate this question through a query-conditioned combination rule and evaluate its behavior under the specified input conditions.
 
-- Can the reader understand what makes the prior approach work?
-- Is the limitation tied to clear conditions and an accurate account of the closest prior work?
-- Does evidence support the explanation, or is it clearly a hypothesis?
-- Does the method act on the previously identified difficulty?
-- Do relationships between components match the implementation?
-- Do result and contribution claims reflect evidence already obtained?
-- Is importance repeatedly asserted, the same distinction overexplained, or limited prior attention used in place of a concrete rationale?
+Use this only when those statements match the actual work. Add a measured limitation or result only when it has been supplied or verified. Do not use this passage to claim that all fixed-weight methods fail.
 
-Use clear scientific subjects and actions. Preserve necessary uncertainty and actual limitations. Avoid repetitive disclaimers and unsupported claims of priority or guarantees.
+## Final revision check
+
+- Does the opening reach the concrete computer science research object?
+- Is the work framed as the kind of contribution actually made?
+- Can the reader understand the closest prior method's operation and capability?
+- Is the limitation tied to a defined condition or dependency?
+- Is the observed behavior distinct from the proposed explanation?
+- Does the design act at the identified point of difficulty?
+- Do module relationships, training conditions, and inference behavior match the implementation?
+- Do contribution and result statements stay within the evidence?
+- Can repeated importance claims, redundant definitions, or unsupported priority language be removed?
+
+Deliver coherent scientific prose with clear subjects and operations. Preserve the user's terminology, citations, factual uncertainty, and real limitations.

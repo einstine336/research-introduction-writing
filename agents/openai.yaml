@@ -1,4 +1,4 @@
 interface:
-  display_name: "Research Introduction Writing"
-  short_description: "Build introductions from mechanisms and evidence"
-  default_prompt: "Use $research-introduction-writing to analyze or revise this introduction using evidence-grounded argument patterns."
+  display_name: "Computer Science Introduction Writing"
+  short_description: "Frame CS research problems and motivate methods"
+  default_prompt: "Use $research-introduction-writing to analyze or revise this computer science Introduction, connecting the research problem, computational mechanisms, and available evidence."

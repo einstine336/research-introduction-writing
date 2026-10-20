@@ -1,121 +1,104 @@
-# Introduction Argument Patterns
+# Argument Patterns for Computer Science Introductions
 
-Use these patterns to choose the reasoning move that a draft needs. Examples are hypothetical writing exercises, not findings or summaries of particular studies. Support the manuscript's technical statements with its own evidence and verified citations.
+Choose the reasoning move that the current draft needs. The examples below are hypothetical computer science writing exercises, not summaries of particular studies or empirical findings. The manuscript's technical claims require its own evidence and verified citations.
 
 ## Selection guide
 
 | Pattern | Use when | Main question |
 | --- | --- | --- |
-| Cost of a natural alternative | An obvious solution is relevant but has a documented practical cost | Which part of the cost is necessary, and which might be avoided? |
-| A changed assumption | A successful mechanism is used under different conditions | Which operation relies on an assumption that no longer holds? |
-| Difficult cases hidden by averages | Overall performance conceals meaningful variation | What happens under the conditions that matter for the task? |
-| Relevance of auxiliary information | Extra information helps only under certain conditions | Which information should influence the target decision? |
-| Component responsibilities | Learned components do not serve their intended roles | What is each component expected to represent or preserve? |
-| Remaining constraints in the closest work | A recent method already addresses the broad gap | What important requirement remains unmet? |
-| Interaction with preservation | A new operation must preserve an existing capability | What should change, and what must remain available? |
+| A task requirement becomes a research question | Existing formulations do not cover a meaningful need or condition | What must the system do, and what changes relative to the closest formulation? |
+| A natural alternative has a relevant cost | An obvious solution works under assumptions or resources that matter to the study | Which cost or dependency motivates another approach? |
+| A computation relies on a changed assumption | A familiar operation is used with different representations or input conditions | What makes this operation appropriate, and which condition has changed? |
+| Aggregate results conceal a difficult condition | A meaningful input group behaves differently | Why does this condition matter, and what does the evidence actually establish? |
+| Auxiliary information requires task relevance | Extra features or supervision do not have the same value for every target decision | What should be selected, weighted, or shared? |
+| Learning shifts component responsibilities | The learned behavior differs from intended roles | Which objective or information path permits the mismatch? |
+| The closest solution leaves a joint requirement | Prior work already solves part of the broad problem | What additional constraint must be satisfied at the same time? |
+| Richer interaction must preserve useful structure | An integration step may disrupt information the task still needs | What should the operation add, and what should it preserve? |
 
-## Cost of a natural alternative
+## A task requirement becomes a research question
 
-### Argument move
+**Argument move.** Narrow the application to a concrete prediction, retrieval, generation, or decision requirement. Explain what existing task formulations assume or optimize. Identify the changed input, available information, output requirement, or constraint, and show why it creates a meaningful question.
 
-Establish the task requirement, introduce the most direct solution, and explain its demonstrated resource or process cost. Distinguish necessary work from avoidable repetition. Derive the proposed efficiency principle from that distinction before introducing the implementation.
+**Hypothetical example.** A retrieval setting supplies complete queries during evaluation, while a target application receives partially specified queries. Explain what information is absent and what a useful retrieval result should satisfy. Check whether existing partial-query or robustness formulations already cover the setting before calling it a new task.
 
-### Hypothetical example
+**Writing decisions.** A new task needs a substantive formulation difference. A difficult condition within an existing task can be framed as a newly studied challenge without renaming the task. A phenomenon worth understanding can be established before diagnosing a method.
 
-A system could rerun a full analysis after every small input update. If measurements show that most intermediate outputs remain valid, the motivation can focus on detecting which work must be repeated.
+**Evidence boundary.** Use supplied use cases, observations, definitions, or verified literature. Do not invent real-world prevalence, claim the setting is unprecedented without checking the closest work, or substitute a new module name for a research question.
 
-### Evidence and boundaries
+## A natural alternative has a relevant cost
 
-Quantify the relevant cost when measurements exist. Explain assumptions and tradeoffs when they do not. Do not infer equivalent output quality from lower cost or claim that the obvious alternative has failed without a comparison.
+**Argument move.** Explain the direct solution a reader would reasonably consider. Acknowledge what it achieves, identify its relevant measured cost or dependency, and distinguish necessary computation from avoidable repetition. Derive the efficiency or process requirement before describing the implementation.
 
-## A changed assumption
+**Hypothetical example.** A retrieval service can rebuild its entire index after each data update. If measurements show that only a small portion changes, the motivation can concern selective recomputation while preserving the required retrieval behavior.
 
-### Argument move
+**Writing decisions.** Specify whether the cost concerns training, inference, preprocessing, memory, latency, or supervision. Connect the proposed change to the particular cost under discussion.
 
-Acknowledge why the mechanism works in its established setting. Identify a condition that changes, locate the operation affected by that change, and explain the consequence at the level supported by evidence. State the requirement for adapting the operation.
+**Evidence boundary.** Reduced FLOPs do not establish reduced wall-clock latency; lower resource use does not establish equal quality. State the operating conditions and tradeoff supported by the available results.
 
-### Hypothetical example
+## A computation relies on a changed assumption
 
-A comparison rule may assume measurements use a common scale. If a new setting combines differently calibrated instruments, discuss the calibration assumption before motivating a normalization procedure.
+**Argument move.** Explain why an established operation is appropriate in its original setting. Identify the representations it consumes, the assumption behind the operation, and the condition that changes. Locate the proposed intervention at the affected computation.
 
-### Evidence and boundaries
+**Hypothetical example.** A retrieval score compares embeddings produced by separately adapted encoders. If observations suggest that their scales or geometry differ, explain why this matters for the comparison and which representation or scoring operation is being adjusted.
 
-A plausible dependency supports a hypothesis, not automatic proof. Avoid declaring a family of methods universally ineffective because one assumption changes in a particular setting.
+**Writing decisions.** Name the objects and the operation before using labels such as mismatch, incompatibility, or misalignment. Distinguish an observed distribution difference from evidence that it harms the target computation.
 
-## Difficult cases hidden by averages
+**Evidence boundary.** A plausible dependency supports a hypothesis. Do not claim that attention, similarity comparison, or another method family universally fails under heterogeneous inputs.
 
-### Argument move
+## Aggregate results conceal a difficult condition
 
-Introduce an observable case that the aggregate result does not explain. Establish why it matters to the task. Use subgroup measurements, if available, to assess its extent. Separate that observation from the proposed mechanism and explain how the design investigates or addresses it.
+**Argument move.** Introduce a concrete input condition, explain why the intended task must handle it, and use available subgroup evidence to establish the observed difficulty. Investigate a possible mechanism separately before motivating a design.
 
-### Hypothetical example
+**Hypothetical example.** An image classifier's overall score can conceal weaker performance on heavily compressed images. A visible example explains the input condition; a relevant subgroup evaluation measures its effect. Neither alone establishes whether the cause lies in the representation, training distribution, or decision rule.
 
-An average error rate may conceal substantially higher errors on inputs with incomplete measurements. A concrete case explains the failure condition; a subgroup comparison measures the difference.
+**Writing decisions.** Explain why these cases should be solved rather than silently removed when they belong to the intended task. Keep the problem definition, subgroup construction, and proposed explanation distinct.
 
-### Evidence and boundaries
+**Evidence boundary.** Do not invent subgroup results or treat a selected example as prevalence evidence. Use the evaluations already supplied; a prose revision does not automatically authorize a new experiment campaign.
 
-Do not treat an example as prevalence evidence or a subgroup gap as proof of a unique cause. Define the subgroup using meaningful task conditions and preserve the uncertainty in the explanation.
+## Auxiliary information requires task relevance
 
-## Relevance of auxiliary information
+**Argument move.** Explain how an auxiliary task, feature stream, or supervision signal relates to the target objective. Discuss the direct sharing strategy and any observed condition under which it is insufficient. Derive a selection, weighting, or integration principle from the target task's needs.
 
-### Argument move
+**Hypothetical example.** An auxiliary classification objective may help a retrieval encoder, while also favoring features that distinguish training categories without improving ranking for the intended queries. If supported by observations, motivate target-aware use of the auxiliary signal.
 
-Explain what the additional information could contribute to the target decision. Identify when it is useful and what irrelevant variation it may also introduce. Motivate selection, weighting, or integration according to observed needs and the actual implementation.
+**Writing decisions.** Separate availability of information from usefulness to the target decision. Explain what an actual filtering or weighting operation changes before naming its module.
 
-### Hypothetical example
+**Evidence boundary.** Related tasks do not imply universal positive transfer. Do not claim negative interference, gradient conflict, or the necessity of filtering without relevant evidence or an explicitly stated hypothesis.
 
-Historical records can inform a forecast, but records collected under a different operating regime may be less relevant. Explain the regime difference before introducing a relevance-based weighting rule.
+## Learning shifts component responsibilities
 
-### Evidence and boundaries
+**Argument move.** Describe each component's intended role. Identify observations suggesting a different learned behavior, explain which objective or information path could permit it, and derive an intervention. If another design addresses a residual difficulty, make that dependency explicit.
 
-Related information is not necessarily beneficial in every case. Do not invent negative transfer or claim that filtering is required when the material only establishes uncertainty about relevance.
+**Hypothetical example.** A shared encoder is intended to capture stable content, while another component represents acquisition-specific variation. If analysis shows acquisition artifacts entering the shared features, the motivation can address that leakage and the training conditions that permit it.
 
-## Component responsibilities
+**Writing decisions.** Explain why the first change may leave a relevant problem before introducing a genuinely dependent second change. Parallel components should receive parallel motivations.
 
-### Argument move
+**Evidence boundary.** Intended roles and module names do not establish learned behavior. An ablation showing a score improvement does not by itself prove that the claimed information separation occurred.
 
-Describe the intended role of each component, identify observations suggesting a role mismatch, and connect the proposed change to that mismatch. If a later step handles a remaining difficulty, explain the actual dependency.
+## The closest solution leaves a joint requirement
 
-### Hypothetical example
+**Argument move.** Introduce a broad difficulty, acknowledge the closest solution that already addresses it, and identify its remaining assumption or dependency. Formulate the requirement that must be satisfied alongside the capability already achieved.
 
-A shared representation is intended to capture stable information, while another component models temporary variation. If analysis shows that short-lived signals dominate the shared representation, use that observation to motivate a separation constraint.
+**Hypothetical example.** A document classifier needs local evidence that global pooling may suppress. A recent method already models local passages but assumes reliable external segmentation. If that assumption matters in the target setting, motivate local evidence modeling under uncertain segmentation rather than claiming that local modeling is absent.
 
-### Evidence and boundaries
+**Writing decisions.** Compare method properties with the relevant alternatives: what capability is retained, which dependency changes, and what evidence supports the difference. Granularity and pipeline dependencies can be separate constraints.
 
-Component names do not establish what was learned. Responsibilities must match the information paths and training procedure. Do not invent the failure of an intermediate design to create a sequential narrative.
+**Evidence boundary.** Verify that the closest work has the stated dependency. Do not ignore a relevant counterexample, generalize a conditional limitation into a universal weakness, or assume that an end-to-end implementation eliminates every error source.
 
-## Remaining constraints in the closest work
+## Richer interaction must preserve useful structure
 
-### Argument move
+**Argument move.** Explain what a new interaction should add and which relationships or capabilities must remain useful. Describe the possible conflict at the level supported by evidence, then introduce the actual mechanism that balances these requirements.
 
-Begin with the closest relevant method's actual achievement. Explain its assumptions, dependencies, or remaining limitations under the current task conditions. Derive the requirement that distinguishes the proposed work.
+**Hypothetical example.** A graph prediction model adds global context to local node features. If analysis suggests that this integration blurs distinctions needed by the prediction target, motivate an interaction rule that retains those distinctions while using context.
 
-### Hypothetical example
+**Writing decisions.** More interaction is not a sufficient objective by itself. Identify the structure to preserve, why the task needs it, and where the actual design acts. Explain cooperative components through their information roles.
 
-A recent approach already handles variable input sizes but requires manually specified operating boundaries. A new study can target variable inputs under automatically estimated boundaries without claiming that variable-size processing itself is unaddressed.
-
-### Evidence and boundaries
-
-Verify that the cited method has the stated requirement. Distinguish an unmet task need from a general weakness. Discuss the strongest relevant counterexample rather than a convenient weaker baseline.
-
-## Interaction with preservation
-
-### Argument move
-
-Explain the benefit sought from a new operation and the existing capability that must remain available. Describe the potential conflict only to the extent supported by observations or a clearly stated hypothesis. Introduce the actual mechanism used to balance those requirements.
-
-### Hypothetical example
-
-An update may improve adaptation to recent inputs while reducing consistency on an established workload. If evaluations establish this tradeoff, motivate an update procedure that also preserves relevant earlier behavior.
-
-### Evidence and boundaries
-
-A preservation objective does not prove preservation. Report the relevant evaluations when available and avoid guarantees based only on the architecture.
+**Evidence boundary.** A preservation loss or architectural branch states an intention, not a demonstrated effect. Do not borrow a specific structural explanation from a writing example and present it as a finding about the current method.
 
 ## Combining patterns
 
-- Use the closest-work pattern to establish what remains unresolved before explaining a changed assumption.
-- Use difficult-case analysis to distinguish the observed problem from its possible mechanism.
-- Combine auxiliary-information reasoning with component responsibilities only when the actual system supports that relationship.
-- Explain parallel, sequential, or collaborative designs according to the implementation.
-- Choose the patterns needed by the draft rather than applying the entire library.
+- A task-first route can establish the need before inspecting the mechanisms that make it difficult.
+- A mechanism-first route can reveal a precise research question by examining an existing operation.
+- Use the closest-solution pattern whenever a relevant method already resolves part of the apparent gap.
+- Use examples, subgroup results, and controlled comparisons for their distinct evidential roles.
+- Choose a small relevant set of moves. Adapt their order to the actual study and implementation.
